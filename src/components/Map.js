@@ -1,8 +1,10 @@
 import React from 'react'
 import coronaService from '../services/corona'
-import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map as LeafletMap, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
 import DataMarker from './DataMarker'
 var data = require('../data/districtmap.json') 
+var geojson = require('../data/kuntarajat.json')
+
 
 class Map extends React.Component {
 
@@ -12,16 +14,13 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-    console.log(data["HUS"].x)
     coronaService.getAll().then(confirmed => {
-      console.log(confirmed)
       this.setState({infections : this.formatData(confirmed)})
     })
   }
   
   formatData = (data) => {
     var newData = {}
-    console.log(data)
     data.confirmed.map(infection => {
       if (newData[infection['healthCareDistrict']]) {
         var count = newData[infection['healthCareDistrict']]
@@ -49,7 +48,7 @@ class Map extends React.Component {
       <LeafletMap
         center={[61.5048382,
         23.8114824]}
-        zoom={6}
+        zoom={7}
         maxZoom={10}
         attributionControl={true}
         zoomControl={true}
@@ -62,6 +61,7 @@ class Map extends React.Component {
         <TileLayer
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
+         <GeoJSON key={`geojson-01`} data={geojson} />
       {this.state.infections != null  ? Object.keys(this.state.infections).map(function(key) {
           return <DataMarker x ={data[key].x} y = {data[key].y} name={key} infections={all[key]}/>
       }): console.log("hei")}

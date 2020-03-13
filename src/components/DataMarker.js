@@ -7,10 +7,9 @@ class DataMarker extends React.Component {
   }
 
   render() {
-    console.log("XDDDD");
     return (
-      <Marker position={[this.props.x, this.props.y]}>
-        <Tooltip permanent offset={[0, 20]} opacity={1}> 
+      <Marker position={[this.props.x, this.props.y]} >
+        <Tooltip permanent  opacity={1}> 
           <div>{this.props.name}</div>
           <div>Tartuntoja: {this.props.infections}</div>
           </Tooltip>
