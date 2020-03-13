@@ -11,7 +11,7 @@ class App extends React.Component {
     return (
       <Container fluid style={{paddingRight:"0px", paddingLeft: "0px"}}>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home">Korona-tartunnat</Navbar.Brand>
+          <Navbar.Brand href="">Korona-tartunnat</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
