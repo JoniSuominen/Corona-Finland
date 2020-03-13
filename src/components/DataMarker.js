@@ -12,6 +12,8 @@ class DataMarker extends React.Component {
         <Tooltip permanent  opacity={1}> 
           <div>{this.props.name}</div>
           <div>Tartuntoja: {this.props.infections}</div>
+          <div>Kuolleita: {this.props.deaths}</div>
+          <div>Parantuneita: {this.props.recovered}</div>
           </Tooltip>
       </Marker>
     );
