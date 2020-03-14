@@ -17,3 +17,9 @@
     padding-right: 0px !important;
   }
 }
+
+@media (min-width: 1920px) {
+  .MuiContainer-maxWidthXl {
+     max-width: 100vw !important
+  }
+}
