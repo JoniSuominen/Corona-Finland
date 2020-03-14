@@ -57,7 +57,7 @@ class MapPage extends React.Component {
           <Grid item xs={3}>
             <InfoPanel data = {this.state.selectionInfections}
             name = {this.state.selection}
-            infected = {this.state.infections} />
+            infected = {this.state.infections !== null ? this.state.infections[this.state.selection]:undefined} />
           </Grid>
         </Grid>
       </div>
