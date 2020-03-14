@@ -70,12 +70,12 @@ class Map extends React.Component {
         <Choropleth
           data={geojson}
           valueProperty={feature => Math.log1p(feature.properties.count)}
-          scale={["#d14900", "#d10000"]}
+          scale={["#A8EB12","#D20F23" ]}
           steps={10}
           mode="e"
           style={style}
           onEachFeature={(feature, layer) =>
-            layer.bindPopup(feature.properties.name)
+            layer.bindPopup(feature.properties.count)
           }
         >
           {this.state.infections != null
