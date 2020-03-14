@@ -19,6 +19,8 @@ const style = {
   dashArray: "3",
   fillOpacity: 0.6
 };
+const bounds = [[71.035597,18.032228],
+                [59.269625,33.105469]]
 
 class Map extends React.Component {
   state = {
@@ -55,16 +57,18 @@ class Map extends React.Component {
     const all = this.state.infections;
     return (
       <LeafletMap
-        center={[61.5048382, 23.8114824]}
-        zoom={7}
+        center={[65.0, 24.0]}
+        zoom={6}
+        minZoom ={6}
         maxZoom={10}
         attributionControl={true}
         zoomControl={true}
-        doubleClickZoom={true}
+        doubleClickZoom={false}
         scrollWheelZoom={true}
         dragging={true}
         animate={true}
         easeLinearity={0.35}
+        maxBounds = {bounds}
       >
         <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" />
         <Choropleth
@@ -79,21 +83,6 @@ class Map extends React.Component {
           }
           visible = {(feature) => feature.properties.count > 0}
         >
-          {this.state.infections != null
-            ? Object.keys(this.state.infections).map(function(key) {
-                console.log(key);
-                return (
-                  <DataMarker
-                    x={data[key].x}
-                    y={data[key].y}
-                    name={key}
-                    infections={all[key].infections}
-                    deaths={all[key].deaths}
-                    recovered={all[key].recovered}
-                  />
-                );
-              })
-            : console.log("hei")}
         </Choropleth>
       </LeafletMap>
     );
