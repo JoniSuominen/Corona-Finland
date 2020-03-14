@@ -50,6 +50,7 @@ class Map extends React.Component {
 
         {this.state.infections != null
           ? Object.keys(this.state.infections).map(function(key) {
+              console.log(key)
               return (
                 <DataMarker
                   x={data[key].x}

@@ -66,7 +66,7 @@ export default class Example extends PureComponent {
           </Row>
           <Row>
             <Col >
-              <h5>Sairastuneiden kokonaismäärä päivittäin</h5>
+              <h5>Sairastuneiden osuus piireittäin</h5>
               <PieChart
                 data={this.state.infectionsByDistrict}
               />
