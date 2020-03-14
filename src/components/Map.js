@@ -9,7 +9,7 @@ import {
 } from "react-leaflet";
 import DataMarker from "./DataMarker";
 var data = require("../data/districtmap.json");
-var geojson = require("../data/shp.json");
+var geojson = require("../data/shpUusi.json");
 
 class Map extends React.Component {
   state = {

@@ -64,8 +64,8 @@ export default class Example extends PureComponent {
               />
             </Col>
           </Row>
-          <Row>
-            <Col >
+          <Row float="center" className="show-grid">
+            <Col xs={12} xsOffset={6} >
               <h5>Sairastuneiden osuus piireittäin</h5>
               <PieChart
                 data={this.state.infectionsByDistrict}
