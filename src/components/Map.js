@@ -12,7 +12,7 @@ import Choropleth from "react-leaflet-choropleth";
 var data = require("../data/districtmap.json");
 var geojson = require("../data/shpNew.json");
 const style = {
-  fillColor: "#12ed12",
+  fillColor: "#aaff80",
   weight: 2,
   opacity: 1,
   color: "white",
