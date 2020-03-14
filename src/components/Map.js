@@ -8,7 +8,7 @@ import Choropleth from "react-leaflet-choropleth";
 var geojson = require("../data/shpNew.json");
 
 const style = {
-  fillColor: "#12ed12",
+  fillColor: "#aaff80",
   weight: 2,
   opacity: 1,
   color: "white",
@@ -18,7 +18,7 @@ const style = {
 
 
 const bounds = [[71.035597,18.032228],
-                [59.269625,33.105469]]
+                [58.269625,33.105469]]
 
 class Map extends React.Component {
   state = {
