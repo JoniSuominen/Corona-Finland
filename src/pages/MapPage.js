@@ -1,9 +1,11 @@
 import React from "react";
+import InfoPanel from "../components/InfoPanel.js"
 import coronaService from "../services/corona";
 import Map from "../components/Map";
 import { withStyles } from "@material-ui/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import Divider from "@material-ui/core/Divider";
 
 var data = require("../data/districtmap.json");
 var geojson = require("../data/shpNew.json");
@@ -28,8 +30,15 @@ class MapPage extends React.Component {
   state = {
     render: true,
     infections: null,
-    deaths: null
+    deaths: null,
+    selection:"Suomi",
+    selectionInfections:null
   };
+
+
+  changeSelection = (mouseAction) => {
+    this.setState({selection:mouseAction.target.options.data.properties.name})
+  }
 
   componentDidMount() {
     coronaService.getAllInfection().then(confirmed => {
@@ -43,10 +52,12 @@ class MapPage extends React.Component {
       <div>
         <Grid container>
           <Grid item xs={9}>
-            <Map></Map>
+            <Map onClick = {this.changeSelection}/>
           </Grid>
           <Grid item xs={3}>
-            <Paper className={classes.paper}>xs=12 sm=6</Paper>
+            <InfoPanel data = {this.state.selectionInfections}
+            name = {this.state.selection}
+            infected = {this.state.infections} />
           </Grid>
         </Grid>
       </div>

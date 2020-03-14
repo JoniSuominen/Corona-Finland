@@ -10,7 +10,7 @@ import {
   Legend
 } from "recharts";
 
-export default class Example extends PureComponent {
+export default class SimpleGraph extends PureComponent {
   constructor(props) {
     super(props);
   }

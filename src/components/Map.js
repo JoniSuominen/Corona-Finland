@@ -21,6 +21,9 @@ const bounds = [[71.035597,18.032228],
                 [58.269625,33.105469]]
 
 class Map extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   state = {
     render: true,
     infections: null,
@@ -71,8 +74,10 @@ class Map extends React.Component {
           steps={10}
           mode="e"
           style={style}
-          onEachFeature={(feature, layer) =>
+          onEachFeature={(feature, layer) => {
             layer.bindPopup(feature.properties.name)
+            layer.on({click: this.props.onClick})
+            }
           }
           visible = {(feature) => feature.properties.count > 0}
         >
