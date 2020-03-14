@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import { PieChart, Pie, Sector } from "recharts";
 
-
 const renderActiveShape = props => {
   const RADIAN = Math.PI / 180;
   const {
@@ -26,7 +25,6 @@ const renderActiveShape = props => {
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
   const textAnchor = cos >= 0 ? "start" : "end";
-
   return (
     <g>
       <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
@@ -61,7 +59,7 @@ const renderActiveShape = props => {
         y={ey}
         textAnchor={textAnchor}
         fill="#333"
-      >{`PV ${value}`}</text>
+      >{`${props.district} ${value}`}</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
@@ -69,12 +67,11 @@ const renderActiveShape = props => {
         textAnchor={textAnchor}
         fill="#999"
       >
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
+        {`(Osuus ${(percent * 100).toFixed(2)}%)`}
       </text>
     </g>
   );
 };
-var data;
 export default class Example extends PureComponent {
   constructor(props) {
     super(props);
@@ -83,7 +80,6 @@ export default class Example extends PureComponent {
   state = {
     activeIndex: 0
   };
-  data = this.props.data
   onPieEnter = (data, index) => {
     this.setState({
       activeIndex: index
@@ -93,7 +89,7 @@ export default class Example extends PureComponent {
   render() {
 
     return (
-      <PieChart width={400} height={400}>
+      <PieChart width={1000} height={800}>
         <Pie
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
@@ -101,7 +97,7 @@ export default class Example extends PureComponent {
           cx={200}
           cy={200}
           innerRadius={60}
-          outerRadius={80}
+          outerRadius={150}
           fill="#8884d8"
           dataKey="count"
           onMouseEnter={this.onPieEnter}
