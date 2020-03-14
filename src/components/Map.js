@@ -20,7 +20,7 @@ const style = {
   fillOpacity: 0.6
 };
 const bounds = [[71.035597,18.032228],
-                [59.269625,33.105469]]
+                [58.269625,33.105469]]
 
 class Map extends React.Component {
   state = {
