@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import coronaService from "../services/corona";
 import SimpleGraph from "../components/SimpleGraph";
+import PieChart from "../components/PieChart";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -17,7 +18,8 @@ import {
 export default class Example extends PureComponent {
   state = {
     infectionsByDate: null,
-    dailyInfections: null
+    dailyInfections: null,
+    infectionsByDistrict: null
   };
   static jsfiddleUrl = "https://jsfiddle.net/alidingling/xqjtetw0/";
 
@@ -31,6 +33,11 @@ export default class Example extends PureComponent {
       console.log(confirmed);
       this.setState({ dailyInfections: confirmed });
     });
+
+    coronaService.getAllByDistrict().then(confirmed => {
+        console.log(confirmed);
+        this.setState({ infectionsByDistrict: confirmed });
+      });
   }
 
   render() {
@@ -54,6 +61,14 @@ export default class Example extends PureComponent {
                 xDataKey={"date"}
                 xDataName={"Päivämäärä"}
                 yDataName={"Sairastuneiden määrä"}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <h5>Sairastuneiden kokonaismäärä päivittäin</h5>
+              <PieChart
+                data={this.state.infectionsByDistrict}
               />
             </Col>
           </Row>

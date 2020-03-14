@@ -86,7 +86,29 @@ const getTotalSickByDate = data => {
     })
 
     return arr;
-
 }
 
-export default { formatInfectionData, getCountByDate, getTotalSickByDate };
+
+const getTotalSickByDistrict = data => {
+    var arr = []
+    var total = 0;
+    data.confirmed.map(confirmed => {
+        const districtName = confirmed['healthCareDistrict']
+      const idx = arr.findIndex(x => x.district === districtName)
+      if (idx !== -1) {
+        var count = arr[idx].count;
+        count++;
+        arr[idx].count = count;
+      } else {
+        const newDistrict = {
+          district: districtName,
+          count: 1
+        };
+        arr.push(newDistrict);
+      }
+    });
+
+    return arr;
+}
+
+export default { formatInfectionData, getCountByDate, getTotalSickByDate, getTotalSickByDistrict };

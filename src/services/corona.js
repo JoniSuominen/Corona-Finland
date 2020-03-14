@@ -18,4 +18,16 @@ const getSickByDate = () => {
   return request.then(response => formatter.getTotalSickByDate(response.data));
 };
 
-export default { getAllInfection, getAllByDate, getSickByDate };
+const getAllByDistrict = () => {
+  const request = axios.get(baseUrl);
+  return request.then(response =>
+    formatter.getTotalSickByDistrict(response.data)
+  );
+};
+
+export default {
+  getAllInfection,
+  getAllByDate,
+  getSickByDate,
+  getAllByDistrict
+};
