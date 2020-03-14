@@ -12,7 +12,7 @@ import Choropleth from "react-leaflet-choropleth";
 var data = require("../data/districtmap.json");
 var geojson = require("../data/shpNew.json");
 const style = {
-  fillColor: "#F28F3B",
+  fillColor: "#12ed12",
   weight: 2,
   opacity: 1,
   color: "white",
@@ -75,8 +75,9 @@ class Map extends React.Component {
           mode="e"
           style={style}
           onEachFeature={(feature, layer) =>
-            layer.bindPopup(feature.properties.count)
+            layer.bindPopup(feature.properties.name)
           }
+          visible = {(feature) => feature.properties.count > 0}
         >
           {this.state.infections != null
             ? Object.keys(this.state.infections).map(function(key) {
