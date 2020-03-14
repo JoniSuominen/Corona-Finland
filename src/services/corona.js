@@ -13,4 +13,9 @@ const getAllByDate = () => {
   return request.then(response => formatter.getCountByDate(response.data));
 };
 
-export default { getAllInfection, getAllByDate };
+const getSickByDate = () => {
+  const request = axios.get(baseUrl);
+  return request.then(response => formatter.getTotalSickByDate(response.data));
+};
+
+export default { getAllInfection, getAllByDate, getSickByDate };

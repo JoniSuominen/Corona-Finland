@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import SimpleGraph from "./components/SimpleGraph";
+import GraphPage from "./pages/GraphPage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
@@ -24,7 +24,7 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route path="/graph">
-              <SimpleGraph></SimpleGraph>
+              <GraphPage/>
             </Route>
             <Route path="/">
               <Map></Map>

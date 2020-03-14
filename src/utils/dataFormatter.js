@@ -54,7 +54,8 @@ const formatInfectionData = data => {
 const getCountByDate = data => {
   var dateCount = [];
   data.confirmed.map(confirmed => {
-    const idx = dateCount.findIndex(x => (x.date == confirmed.date));
+      const date = new Date(confirmed.date);
+    const idx = dateCount.findIndex(x => (new Date(x.date).toString().split(" ").slice(0, 4).join(" ") === date.toString().split(" ").slice(0, 4).join(" ")))
     console.log(idx)
     if (idx !== -1) {
       var count = dateCount[idx].count;
@@ -62,7 +63,7 @@ const getCountByDate = data => {
       dateCount[idx].count = count;
     } else {
       const newDate = {
-        date: confirmed.date,
+        date: date.toString().split(" ").slice(0, 4).join(" "),
         count: 1
       };
       dateCount.push(newDate);
@@ -76,4 +77,16 @@ const getCountByDate = data => {
   return dateCount;
 };
 
-export default { formatInfectionData, getCountByDate };
+const getTotalSickByDate = data => {
+    var arr = getCountByDate(data);
+    var total = 0;
+    arr.forEach(idx => {
+        total += idx.count;
+        idx.count = total;
+    })
+
+    return arr;
+
+}
+
+export default { formatInfectionData, getCountByDate, getTotalSickByDate };
