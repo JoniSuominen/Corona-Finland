@@ -1,0 +1,212 @@
+{
+  "Ahvenanmaa": [
+    {
+      "targetname": "Ahvenanmaa",
+      "population": 18046,
+      "young": 3265.618,
+      "working_age": 10892.172,
+      "old": 3887.492,
+      "_row": "Ahvenanmaa"
+    }
+  ],
+  "Etelä-Karjalan SHP": [
+    {
+      "targetname": "Etelä-Karjalan SHP",
+      "population": 128756,
+      "young": 17465.75,
+      "working_age": 76824.301,
+      "old": 34470.791,
+      "_row": "Etelä-Karjalan SHP"
+    }
+  ],
+  "Etelä-Pohjanmaan SHP": [
+    {
+      "targetname": "Etelä-Pohjanmaan SHP",
+      "population": 194316,
+      "young": 32553.761,
+      "working_age": 113705.714,
+      "old": 48056.353,
+      "_row": "Etelä-Pohjanmaan SHP"
+    }
+  ],
+  "Etelä-Savon SHP": [
+    {
+      "targetname": "Etelä-Savon SHP",
+      "population": 100226,
+      "young": 13204.56,
+      "working_age": 57863.808,
+      "old": 29212.051,
+      "_row": "Etelä-Savon SHP"
+    }
+  ],
+  "Helsingin ja Uudenmaan SHP": [
+    {
+      "targetname": "Helsingin ja Uudenmaan SHP",
+      "population": 1667203,
+      "young": 277166.761,
+      "working_age": 1101222.329,
+      "old": 289097.852,
+      "_row": "Helsingin ja Uudenmaan SHP"
+    }
+  ],
+  "Itä-Savon SHP": [
+    {
+      "targetname": "Itä-Savon SHP",
+      "population": 41060,
+      "young": 4926.552,
+      "working_age": 23053.794,
+      "old": 13079.654,
+      "_row": "Itä-Savon SHP"
+    }
+  ],
+  "Kainuun SHP": [
+    {
+      "targetname": "Kainuun SHP",
+      "population": 73061,
+      "young": 10255.824,
+      "working_age": 42709.257,
+      "old": 20087.59,
+      "_row": "Kainuun SHP"
+    }
+  ],
+  "Kanta-Hämeen SHP": [
+    {
+      "targetname": "Kanta-Hämeen SHP",
+      "population": 171364,
+      "young": 26612.724,
+      "working_age": 102488.794,
+      "old": 42240.887,
+      "_row": "Kanta-Hämeen SHP"
+    }
+  ],
+  "Keski-Pohjanmaan SHP": [
+    {
+      "targetname": "Keski-Pohjanmaan SHP",
+      "population": 77689,
+      "young": 14600.703,
+      "working_age": 45158.453,
+      "old": 17973.224,
+      "_row": "Keski-Pohjanmaan SHP"
+    }
+  ],
+  "Keski-Suomen SHP": [
+    {
+      "targetname": "Keski-Suomen SHP",
+      "population": 252676,
+      "young": 41167.732,
+      "working_age": 155979.652,
+      "old": 55647.925,
+      "_row": "Keski-Suomen SHP"
+    }
+  ],
+  "Kymenlaakson SHP": [
+    {
+      "targetname": "Kymenlaakson SHP",
+      "population": 166623,
+      "young": 22650.778,
+      "working_age": 98484.696,
+      "old": 45490.676,
+      "_row": "Kymenlaakson SHP"
+    }
+  ],
+  "Lapin SHP": [
+    {
+      "targetname": "Lapin SHP",
+      "population": 117350,
+      "young": 17271.098,
+      "working_age": 71922.553,
+      "old": 28219.271,
+      "_row": "Lapin SHP"
+    }
+  ],
+  "Länsi-Pohjan SHP": [
+    {
+      "targetname": "Länsi-Pohjan SHP",
+      "population": 61172,
+      "young": 9632.215,
+      "working_age": 35767.889,
+      "old": 15771.896,
+      "_row": "Länsi-Pohjan SHP"
+    }
+  ],
+  "Pirkanmaan SHP": [
+    {
+      "targetname": "Pirkanmaan SHP",
+      "population": 535044,
+      "young": 85040.725,
+      "working_age": 333919.149,
+      "old": 116038.533,
+      "_row": "Pirkanmaan SHP"
+    }
+  ],
+  "Pohjois-Karjalan SHP": [
+    {
+      "targetname": "Pohjois-Karjalan SHP",
+      "population": 165569,
+      "young": 23201.94,
+      "working_age": 99581.054,
+      "old": 42720.791,
+      "_row": "Pohjois-Karjalan SHP"
+    }
+  ],
+  "Pohjois-Pohjanmaan SHP": [
+    {
+      "targetname": "Pohjois-Pohjanmaan SHP",
+      "population": 409418,
+      "young": 80451.454,
+      "working_age": 251122.177,
+      "old": 78031.369,
+      "_row": "Pohjois-Pohjanmaan SHP"
+    }
+  ],
+  "Pohjois-Savon SHP": [
+    {
+      "targetname": "Pohjois-Savon SHP",
+      "population": 245602,
+      "young": 36404.321,
+      "working_age": 149027.394,
+      "old": 60190.129,
+      "_row": "Pohjois-Savon SHP"
+    }
+  ],
+  "Päijät-Hämeen SHP": [
+    {
+      "targetname": "Päijät-Hämeen SHP",
+      "population": 211215,
+      "young": 31164.492,
+      "working_age": 125104.348,
+      "old": 54921.797,
+      "_row": "Päijät-Hämeen SHP"
+    }
+  ],
+  "Satakunnan SHP": [
+    {
+      "targetname": "Satakunnan SHP",
+      "population": 218624,
+      "young": 32330.211,
+      "working_age": 128215.068,
+      "old": 58131.975,
+      "_row": "Satakunnan SHP"
+    }
+  ],
+  "Vaasan SHP": [
+    {
+      "targetname": "Vaasan SHP",
+      "population": 169684,
+      "young": 29285.089,
+      "working_age": 102148.544,
+      "old": 38242.912,
+      "_row": "Vaasan SHP"
+    }
+  ],
+  "Varsinais-Suomen SHP": [
+    {
+      "targetname": "Varsinais-Suomen SHP",
+      "population": 481478,
+      "young": 72000.183,
+      "working_age": 298823.838,
+      "old": 110671.875,
+      "_row": "Varsinais-Suomen SHP"
+    }
+  ]
+}
