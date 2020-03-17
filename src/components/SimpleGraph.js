@@ -32,7 +32,6 @@ export default class SimpleGraph extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-
         <Line
           type="monotone"
           dataKey="count"

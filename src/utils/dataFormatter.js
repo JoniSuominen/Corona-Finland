@@ -142,7 +142,6 @@ const aggregateByDay = dataArray => {
   return outputArr.sort((a,b) => Date.parse(a.date)>Date.parse(b.date) ?1:-1);
 }
 
-//TODO: break to smaller parts + lodash anyone?
 const getTotalSickByDistrictTimeseries = (data, districtName) => {
   let confirmed = []
   let deaths = []
@@ -151,8 +150,17 @@ const getTotalSickByDistrictTimeseries = (data, districtName) => {
   confirmed = aggregateByDay(filterDataArrayByDistrict(data.confirmed, districtName))
   deaths = aggregateByDay(filterDataArrayByDistrict(data.deaths, districtName))
   recovered = aggregateByDay(filterDataArrayByDistrict(data.recovered, districtName))
-  console.log(confirmed);
   return {confirmed:confirmed, deaths:deaths, recovered:recovered};
 }
 
-export default { formatInfectionData, getCountByDate, getTotalSickByDate, getTotalSickByDistrict, getTotalSickByDistrictTimeseries };
+// Takes data in the format returned by aggregateByDay function
+const cumulativeSum = dataArray => {
+
+  let cumSum = JSON.parse(JSON.stringify(dataArray))
+  
+  dataArray.reduce((acc, cur, ind) => {
+    return cumSum[ind].count = acc + cur.count;
+  },0);
+  return cumSum;
+}
+export default { formatInfectionData, getCountByDate, getTotalSickByDate, getTotalSickByDistrict, getTotalSickByDistrictTimeseries, cumulativeSum };
