@@ -25,24 +25,19 @@ export default class Example extends PureComponent {
 
   componentDidMount() {
     coronaService.getSickByDate().then(confirmed => {
-      console.log(confirmed);
       this.setState({ infectionsByDate: confirmed });
     });
 
     coronaService.getAllByDate().then(confirmed => {
-      console.log(confirmed);
       this.setState({ dailyInfections: confirmed });
     });
 
     coronaService.getAllByDistrict().then(confirmed => {
-        console.log(confirmed);
         this.setState({ infectionsByDistrict: confirmed });
       });
   }
 
   render() {
-    console.log("this one")
-    console.log(this.state.infectionsByDate)
     return (
       <div style={{ marginLeft: "15px", marginTop: "20px" }}>
         <Container fluid>

@@ -32,7 +32,6 @@ class Map extends React.Component {
 
   componentDidMount() {
     coronaService.getAllInfection().then(confirmed => {
-      console.log(confirmed)
       Object.keys(confirmed).forEach(function(key) {
         var idx = geojson.features.findIndex(g =>
           g.properties.name == key

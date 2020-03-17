@@ -56,7 +56,6 @@ const getCountByDate = data => {
   data.confirmed.map(confirmed => {
       const date = new Date(confirmed.date);
     const idx = dateCount.findIndex(x => (new Date(x.date).toString().split(" ").slice(0, 4).join(" ") === date.toString().split(" ").slice(0, 4).join(" ")))
-    console.log(idx)
     if (idx !== -1) {
       var count = dateCount[idx].count;
       count++;
@@ -93,7 +92,6 @@ const getTotalSickByDate = data => {
 const getTotalSickByDistrict = data => {
     var arr = []
     var total = 0;
-    console.log(data)
     data.confirmed.map(confirmed => {
         const districtName = confirmed['healthCareDistrict']
       const idx = arr.findIndex(x => x.district === districtName)
@@ -151,7 +149,6 @@ const getTotalSickByDistrictTimeseries = (data, districtName) => {
   confirmed = aggregateByDay(filterDataArrayByDistrict(data.confirmed, districtName))
   deaths = aggregateByDay(filterDataArrayByDistrict(data.deaths, districtName))
   recovered = aggregateByDay(filterDataArrayByDistrict(data.recovered, districtName))
-  console.log(confirmed);
   return {confirmed:confirmed, deaths:deaths, recovered:recovered};
 }
 
