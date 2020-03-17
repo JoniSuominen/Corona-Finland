@@ -19,7 +19,8 @@
     "react-leaflet-choropleth": "^2.0.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "recharts": "^1.8.5"
+    "recharts": "^1.8.5",
+    "ttl-localstorage": "^1.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
