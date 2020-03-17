@@ -31,7 +31,7 @@ class MapPage extends React.Component {
     render: true,
     infections: null,
     deaths: null,
-    selection:"Suomi",
+    selection:"Pirkanmaa",
     selectionInfections:null
   };
 
@@ -48,6 +48,9 @@ class MapPage extends React.Component {
     coronaService.getAllInfection().then(confirmed => {
       this.setState({ infections: confirmed });
     });
+    coronaService.getTimeseriesByDistrict(this.state.selection).then(ts => {
+      this.setState({selectionInfections:ts})
+    })
   }
 
   render() {

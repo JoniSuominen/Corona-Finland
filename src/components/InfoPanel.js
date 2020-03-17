@@ -12,12 +12,20 @@ class InfoPanel extends React.Component {
             <Paper>
                 <h1>{this.props.name}</h1>
                 <h2>Sairastuneita: {this.props.infected !== undefined ? this.props.infected.infections:0}</h2>
-                <h2>Kuolleita: {this.props.infected !== undefined ? this.props.infected.deaths:0}</h2>
-                <h2>Parantuneita: {this.props.infected !== undefined ? this.props.infected.recovered:0}</h2>
                 <SimpleGraph data={this.props.data !== null ? this.props.data.confirmed:[]}
                 xDataKey={"date"}
-                xDataName={"Päivämäärä"}
+                xDataName={null}
                 yDataName={"Sairastuneiden määrä"}/>
+                <h2>Kuolleita: {this.props.infected !== undefined ? this.props.infected.deaths:0}</h2>
+                <SimpleGraph data={this.props.data !== null ? this.props.data.deaths:[]}
+                xDataKey={"date"}
+                xDataName={"Päivämäärä"}
+                yDataName={"Kuolleiden määrä"}/>
+                <h2>Parantuneita: {this.props.infected !== undefined ? this.props.infected.recovered:0}</h2>
+                <SimpleGraph data={this.props.data !== null ? this.props.data.recovered:[]}
+                xDataKey={"date"}
+                xDataName={"Päivämäärä"}
+                yDataName={"Parantuneiden määrä"}/>
                 
             </Paper>
         )

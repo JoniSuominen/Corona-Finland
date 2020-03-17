@@ -32,12 +32,7 @@ export default class SimpleGraph extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line
-          type="monotone"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
-          name={this.props.xDataName}
-        />
+
         <Line
           type="monotone"
           dataKey="count"
