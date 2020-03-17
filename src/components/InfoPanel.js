@@ -14,7 +14,7 @@ class InfoPanel extends React.Component {
                 <h2>Sairastuneita: {this.props.infected !== undefined ? this.props.infected.infections:0}</h2>
                 <h2>Kuolleita: {this.props.infected !== undefined ? this.props.infected.deaths:0}</h2>
                 <h2>Parantuneita: {this.props.infected !== undefined ? this.props.infected.recovered:0}</h2>
-                <SimpleGraph data={this.props.infectionsByDate}
+                <SimpleGraph data={this.props.data !== null ? this.props.data.confirmed:[]}
                 xDataKey={"date"}
                 xDataName={"Päivämäärä"}
                 yDataName={"Sairastuneiden määrä"}/>

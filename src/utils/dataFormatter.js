@@ -74,6 +74,7 @@ const getCountByDate = data => {
     // to get a value that is either negative, positive, or zero.
     return new Date(a.date) - new Date(b.date);
   });
+
   return dateCount;
 };
 
@@ -92,6 +93,7 @@ const getTotalSickByDate = data => {
 const getTotalSickByDistrict = data => {
     var arr = []
     var total = 0;
+    console.log(data)
     data.confirmed.map(confirmed => {
         const districtName = confirmed['healthCareDistrict']
       const idx = arr.findIndex(x => x.district === districtName)
@@ -111,4 +113,46 @@ const getTotalSickByDistrict = data => {
     return arr;
 }
 
-export default { formatInfectionData, getCountByDate, getTotalSickByDate, getTotalSickByDistrict };
+const filterDataArrayByDistrict = (dataArray, districtName) => {
+  let filteredArray = dataArray.filter(obs => obs["healthCareDistrict"] === districtName);
+
+  return filteredArray;
+}
+
+const aggregateByDay = dataArray => {
+  let dateMapping = new Map();
+  for (const elem of dataArray) {
+    const date = new Date(elem["date"]);
+
+    const dateStr = ""+date.getFullYear()+"-"+ date.getMonth()+"-"+date.getDate();
+    let data = dateMapping.get(dateStr)
+
+    if(data === undefined) {
+      dateMapping.set(dateStr, 1);
+    }
+    else {
+      dateMapping.set(dateStr, data+1);
+    }
+  };
+
+  let outputArr = []
+  for (const [key, value] of dateMapping.entries()) {
+    outputArr.push({date:key, count:value})
+  }
+  return outputArr.sort((a,b) => Date.parse(a.date)>Date.parse(b.date) ?1:-1);
+}
+
+//TODO: break to smaller parts + lodash anyone?
+const getTotalSickByDistrictTimeseries = (data, districtName) => {
+  let confirmed = []
+  let deaths = []
+  let recovered = []
+
+  confirmed = aggregateByDay(filterDataArrayByDistrict(data.confirmed, districtName))
+  deaths = aggregateByDay(filterDataArrayByDistrict(data.deaths, districtName))
+  recovered = aggregateByDay(filterDataArrayByDistrict(data.recovered, districtName))
+  console.log(confirmed);
+  return {confirmed:confirmed, deaths:deaths, recovered:recovered};
+}
+
+export default { formatInfectionData, getCountByDate, getTotalSickByDate, getTotalSickByDistrict, getTotalSickByDistrictTimeseries };

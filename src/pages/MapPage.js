@@ -37,7 +37,11 @@ class MapPage extends React.Component {
 
 
   changeSelection = (mouseAction) => {
-    this.setState({selection:mouseAction.target.options.data.properties.name})
+    coronaService.getTimeseriesByDistrict(mouseAction.target.options.data.properties.name).then(ts => {
+      this.setState({selection:mouseAction.target.options.data.properties.name,
+    selectionInfections:ts})
+    })
+    
   }
 
   componentDidMount() {
