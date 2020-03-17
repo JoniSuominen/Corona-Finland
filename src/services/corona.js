@@ -25,9 +25,16 @@ const getAllByDistrict = () => {
   );
 };
 
+const getTimeseriesByDistrict = (districtName) => {
+  const request = axios.get(baseUrl);
+  return request.then(response =>
+    formatter.getTotalSickByDistrictTimeseries(response.data, districtName)
+  );
+};
 export default {
   getAllInfection,
   getAllByDate,
   getSickByDate,
-  getAllByDistrict
+  getAllByDistrict,
+  getTimeseriesByDistrict
 };

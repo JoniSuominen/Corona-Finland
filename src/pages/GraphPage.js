@@ -41,6 +41,8 @@ export default class Example extends PureComponent {
   }
 
   render() {
+    console.log("this one")
+    console.log(this.state.infectionsByDate)
     return (
       <div style={{ marginLeft: "15px", marginTop: "20px" }}>
         <Container fluid>

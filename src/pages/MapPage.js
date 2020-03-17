@@ -31,19 +31,26 @@ class MapPage extends React.Component {
     render: true,
     infections: null,
     deaths: null,
-    selection:"Suomi",
+    selection:"Pirkanmaa",
     selectionInfections:null
   };
 
 
   changeSelection = (mouseAction) => {
-    this.setState({selection:mouseAction.target.options.data.properties.name})
+    coronaService.getTimeseriesByDistrict(mouseAction.target.options.data.properties.name).then(ts => {
+      this.setState({selection:mouseAction.target.options.data.properties.name,
+    selectionInfections:ts})
+    })
+    
   }
 
   componentDidMount() {
     coronaService.getAllInfection().then(confirmed => {
       this.setState({ infections: confirmed });
     });
+    coronaService.getTimeseriesByDistrict(this.state.selection).then(ts => {
+      this.setState({selectionInfections:ts})
+    })
   }
 
   render() {
@@ -57,7 +64,7 @@ class MapPage extends React.Component {
           <Grid item xs={3}>
             <InfoPanel data = {this.state.selectionInfections}
             name = {this.state.selection}
-            infected = {this.state.infections} />
+            infected = {this.state.infections !== null ? this.state.infections[this.state.selection]:undefined} />
           </Grid>
         </Grid>
       </div>
