@@ -11,12 +11,9 @@
   height: 6vh;
 }
 
-@media (min-width: 600px) {
-  .MuiContainer-root {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-    max-height: 50vh !important;
-  }
+.MuiContainer-root {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 @media (min-width: 1920px) {
@@ -25,22 +22,29 @@
   }
 }
 
-@media (min-width: 400px) {
+@media (min-width: 600px) {
   .leaflet-container {
     width: 100%;
     height: 80vh;
   }
 }
 
+@media (min-width: 300px) {
+  .leaflet-container {
+    width: 100%;
+    height: 65vh;
+  }
+}
+
 @media (min-width: 600px) {
   .graphs {
-    visibility: hidden
+    visibility: hidden;
   }
 }
 
 @media (min-width: 1920px) {
   .graphs {
-    visibility: true
+    visibility: true;
   }
 }
 
@@ -50,6 +54,15 @@
     height: 94vh;
   }
 }
+
+h2 {
+  font-size: 1.8rem !important
+}
+
+h1 {
+  font-size: 2rem !important
+}
+
 
 html,
 body {
