@@ -21,6 +21,7 @@ class InfoPanel extends React.Component {
             let plottable = this.state.cumulative ? formatter.cumulativeSum(data[variableName]):data[variableName];
             return(<SimpleGraph data={plottable}
                     xDataKey={"date"}
+                    width='100%'
                     xDataName={null}
                     yDataName={yLabel}/>);
         }
@@ -32,7 +33,7 @@ class InfoPanel extends React.Component {
     render() {
 
         return(
-            <Paper>
+            <Paper style={{paddingLeft: "10%"}}>
                 <h1>{this.props.name}</h1>
                 <FormControlLabel control = {
                 <Switch

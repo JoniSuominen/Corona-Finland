@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { PieChart, Pie, Sector } from "recharts";
+import { PieChart, Pie, Sector, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
 
 const renderActiveShape = props => {
   const RADIAN = Math.PI / 180;
@@ -87,23 +87,15 @@ export default class Example extends PureComponent {
   };
 
   render() {
-
     return (
-      <PieChart width={1000} height={800}>
-        <Pie
-          activeIndex={this.state.activeIndex}
-          activeShape={renderActiveShape}
-          data={this.props.data}
-          cx={200}
-          cy={200}
-          innerRadius={60}
-          outerRadius={150}
-          fill="#8884d8"
-          dataKey="count"
-          onMouseEnter={this.onPieEnter}
-        />
-      </PieChart>
+      <BarChart width={1000} height={600} data={this.props.data}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="district" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="count" fill="#8884d8" />
+      </BarChart>
     );
   }
 }
-

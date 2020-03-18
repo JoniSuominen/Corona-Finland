@@ -7,7 +7,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  ResponsiveContainer
 } from "recharts";
 
 export default class SimpleGraph extends PureComponent {
@@ -16,9 +17,8 @@ export default class SimpleGraph extends PureComponent {
   }
   render() {
     return (
+      <ResponsiveContainer height='60%' width={this.props.width} aspect={4.0/3.0}>
       <LineChart
-        width={500}
-        height={300}
         data={this.props.data}
         margin={{
           top: 15,
@@ -39,6 +39,7 @@ export default class SimpleGraph extends PureComponent {
           name={this.props.yDataName}
         />
       </LineChart>
+      </ResponsiveContainer>
     );
   }
 }

@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
@@ -40,19 +41,16 @@ class App extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <CssBaseline />
         <Container maxWidth="xl">
           <AppBar position="static" elevation={0}>
             <Toolbar>
-              <Typography style={{marginRight: "5vh"}} type="title" color="white" variant="body2">
-                <Link href="/" color="white">
+              <Typography >
+                <Button href="/" color="inherit" style={{height: "100%"}}>
                   Kartta
-                </Link>
-              </Typography>
-              <Typography type="title" color="white" variant="body2">
-                <Link href="/graph" color="white">
-                  Tartunnat
-                </Link>
+                </Button>
+                <Button href="/graph" color="inherit" style={{height: "100%"}}>
+                  Tilastot
+                </Button>
               </Typography>
             </Toolbar>
           </AppBar>

@@ -46,6 +46,7 @@ export default class Example extends PureComponent {
               <h5>Sairastuneiden kokonaismäärä päivittäin</h5>
               <SimpleGraph
                 data={this.state.infectionsByDate}
+                width={'70%'}
                 xDataKey={"date"}
                 xDataName={"Päivämäärä"}
                 yDataName={"Sairastuneiden määrä"}
@@ -56,6 +57,7 @@ export default class Example extends PureComponent {
               <SimpleGraph
                 data={this.state.dailyInfections}
                 xDataKey={"date"}
+                width={'70%'}
                 xDataName={"Päivämäärä"}
                 yDataName={"Sairastuneiden määrä"}
               />
