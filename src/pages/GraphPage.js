@@ -5,6 +5,7 @@ import PieChart from "../components/PieChart";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import utils from "../utils/utils"
 import {
   LineChart,
   Line,
@@ -38,6 +39,7 @@ export default class Example extends PureComponent {
   }
 
   render() {
+    console.log(this.state.infectionsByDistrict)
     return (
       <div style={{ marginLeft: "15px", marginTop: "20px" }}>
         <Container fluid>
@@ -67,7 +69,7 @@ export default class Example extends PureComponent {
             <Col xs={12} xsOffset={6} >
               <h5>Sairastuneiden osuus piireittäin</h5>
               <PieChart
-                data={this.state.infectionsByDistrict}
+                data={this.state.infectionsByDistrict === null ? this.state.infectionsByDistrict: utils.sortByDistrictCount(this.state.infectionsByDistrict)}
               />
             </Col>
           </Row>

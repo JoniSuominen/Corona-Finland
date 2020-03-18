@@ -87,6 +87,7 @@ export default class Example extends PureComponent {
   };
 
   render() {
+    console.log(this.props.data)
     return (
       <BarChart width={1000} height={600} data={this.props.data}>
         <CartesianGrid strokeDasharray="3 3" />
@@ -94,7 +95,7 @@ export default class Example extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="count" fill="#8884d8" />
+        <Bar dataKey="count" fill="#8884d8" name={"Tarttuneiden määrä"}/>
       </BarChart>
     );
   }

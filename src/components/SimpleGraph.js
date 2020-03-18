@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import coronaService from "../services/corona";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {
   LineChart,
   Line,
