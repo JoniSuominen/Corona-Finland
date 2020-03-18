@@ -5,7 +5,8 @@ import PieChart from "../components/PieChart";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import utils from "../utils/utils"
+import Grid from "@material-ui/core/Grid";
+import utils from "../utils/utils";
 import {
   LineChart,
   Line,
@@ -34,46 +35,46 @@ export default class Example extends PureComponent {
     });
 
     coronaService.getAllByDistrict().then(confirmed => {
-        this.setState({ infectionsByDistrict: confirmed });
-      });
+      this.setState({ infectionsByDistrict: confirmed });
+    });
   }
 
   render() {
-    console.log(this.state.infectionsByDistrict)
+    console.log(this.state.infectionsByDistrict);
     return (
       <div style={{ marginLeft: "15px", marginTop: "20px" }}>
-        <Container fluid>
-          <Row>
-            <Col>
-              <h5>Sairastuneiden kokonaismäärä päivittäin</h5>
-              <SimpleGraph
-                data={this.state.infectionsByDate}
-                width={'70%'}
-                xDataKey={"date"}
-                xDataName={"Päivämäärä"}
-                yDataName={"Sairastuneiden määrä"}
-              />
-            </Col>
-            <Col>
-              <h5>Päivän aikana sairastuneet</h5>
-              <SimpleGraph
-                data={this.state.dailyInfections}
-                xDataKey={"date"}
-                width={'70%'}
-                xDataName={"Päivämäärä"}
-                yDataName={"Sairastuneiden määrä"}
-              />
-            </Col>
-          </Row>
-          <Row float="center" className="show-grid">
-            <Col xs={12} xsOffset={6} >
-              <h5>Sairastuneiden osuus piireittäin</h5>
-              <PieChart
-                data={this.state.infectionsByDistrict === null ? this.state.infectionsByDistrict: utils.sortByDistrictCount(this.state.infectionsByDistrict)}
-              />
-            </Col>
-          </Row>
-        </Container>
+        <Grid container>
+        <Grid item xs={12} md={6}>
+          <h5>Sairastuneiden kokonaismäärä päivittäin</h5>
+          <SimpleGraph
+            data={this.state.infectionsByDate}
+            width={"70%"}
+            xDataKey={"date"}
+            xDataName={"Päivämäärä"}
+            yDataName={"Sairastuneiden määrä"}
+          />
+          </Grid>
+          <Grid item xs={12} md={6}>
+          <h5>Päivän aikana sairastuneet</h5>
+          <SimpleGraph
+            data={this.state.dailyInfections}
+            xDataKey={"date"}
+            width={"70%"}
+            xDataName={"Päivämäärä"}
+            yDataName={"Sairastuneiden määrä"}
+          />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <h5>Sairastuneiden osuus piireittäin</h5>
+            <PieChart
+              data={
+                this.state.infectionsByDistrict === null
+                  ? this.state.infectionsByDistrict
+                  : utils.sortByDistrictCount(this.state.infectionsByDistrict)
+              }
+            />
+          </Grid>
+        </Grid>
       </div>
     );
   }
