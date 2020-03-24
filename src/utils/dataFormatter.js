@@ -122,7 +122,7 @@ const aggregateByDay = dataArray => {
   for (const elem of dataArray) {
     const date = new Date(elem["date"]);
 
-    const dateStr = ""+date.getFullYear()+"-"+ date.getMonth()+"-"+date.getDate();
+    const dateStr = ""+date.getFullYear()+"-"+ (date.getMonth() + 1)+"-"+date.getDate();
     let data = dateMapping.get(dateStr)
 
     if(data === undefined) {
